@@ -1,14 +1,14 @@
 // Функция для проверки длины строки с максимально допустимой длиной
-function counterStringLength (string, maxLength) {
+const counterStringLength = (string, maxLength) => {
   if (string.lenght() <= maxLength) {
     return true;
   }
 
   return false;
-}
+};
 
 // Функция для проверки, является ли строка палиндромом
-function palindromeCheck (string) {
+const palindromeCheck = (string) => {
   const stringReplace = string.replaceAll(' ', '');
   const normalizeString = stringReplace.toUpperCase();
   let reverseString = '';
@@ -18,10 +18,10 @@ function palindromeCheck (string) {
   }
 
   return normalizeString === reverseString;
-}
+};
 
 // Функция принимает строку, извлекает цифры, возвращает их числом или NaN
-function stringToNumber (string) {
+const stringToNumber = (string) => {
   string = string.toString();
   let numbers = '';
   for (let i = 0; i <= string.length - 1; i++) {
@@ -32,4 +32,8 @@ function stringToNumber (string) {
     }
   }
   return parseInt(numbers, 10);
-}
+};
+
+counterStringLength('123', 3);
+palindromeCheck('поп');
+stringToNumber('123');
