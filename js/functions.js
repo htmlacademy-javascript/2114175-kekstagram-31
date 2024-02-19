@@ -6,11 +6,14 @@ let counterStringLength = (string, maxLength) => {
   return false;
 }
 
-let palindromeCheck = (stringCheck) => {
-  let string = stringCheck.replaceAll();
-  let UpperCaseString = string.toUpperCase();
-  let emptyLine = '';
+let palindromeCheck = (string) => {
+  let stringReplace = string.replaceAll(' ', '');
+  let normalizeString = stringReplace.toUpperCase();
+  let reverseString = '';
 
-  for (let i = 1;;) {
+  for (let i = normalizeString.length - 1; i >= 0; i--) {
+    reverseString += normalizeString.at(i);
   }
+
+  return normalizeString === reverseString;
 }
