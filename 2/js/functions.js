@@ -1,6 +1,6 @@
 // Функция для проверки длины строки с максимально допустимой длиной
 const counterStringLength = (string, maxLength) => {
-  if (string.lenght() <= maxLength) {
+  if (string.lenght <= maxLength) {
     return true;
   }
 
