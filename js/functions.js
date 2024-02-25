@@ -1,11 +1,5 @@
 // Функция для проверки длины строки с максимально допустимой длиной
-const counterStringLength = (string, maxLength) => {
-  if (string.lenght <= maxLength) {
-    return true;
-  }
-
-  return false;
-};
+const countStringLength = (string = '', maxLength = 1) => (string.lenght <= maxLength);
 
 // Функция для проверки, является ли строка палиндромом
 const palindromeCheck = (string) => {
@@ -34,6 +28,6 @@ const stringToNumber = (string) => {
   return parseInt(numbers, 10);
 };
 
-counterStringLength('123', 3);
+countStringLength('123', 3);
 palindromeCheck('поп');
 stringToNumber('123');
