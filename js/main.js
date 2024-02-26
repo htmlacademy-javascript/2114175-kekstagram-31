@@ -4,7 +4,7 @@ let currentCommentId = 1;
 const getCommentId = () => currentCommentId++;
 
 // текст для коммента
-const userMessages = [
+const USER_MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -14,7 +14,7 @@ const userMessages = [
 ];
 
 // имена для коммента
-const userNames = [
+const USER_NAMES = [
   'Иван',
   'Мария',
   'Кристоф',
@@ -24,7 +24,7 @@ const userNames = [
 ];
 
 // фото авторов для коммента
-const userAvatars = [
+const USER_AVATARS = [
   'img/avatar-1.svg',
   'img/avatar-2.svg',
   'img/avatar-3.svg',
@@ -38,11 +38,8 @@ const userAvatars = [
 let currentPhotoId = 1;
 const getPhotoId = () => currentPhotoId++;
 
-// url для фото
-const getPhotoUrl = (i) => `photos/${i}.jpg`;
-
 // description фотки
-const photoDescriptions = [
+const PHOTO_DESCRIPTIONS = [
   'Я старался',
   'Почти получилось хорошо',
   'Получилось не очень',
@@ -65,9 +62,9 @@ const getRandomArrayElement = (elements) => elements[getRandomInteger(0, element
 // собираем карточку комментария
 const createUserComment = () => ({
   id: getCommentId(),
-  avatar: getRandomArrayElement(userAvatars),
-  message: getRandomArrayElement(userMessages),
-  name: getRandomArrayElement(userNames)
+  avatar: getRandomArrayElement(USER_AVATARS),
+  message: getRandomArrayElement(USER_MESSAGES),
+  name: getRandomArrayElement(USER_NAMES)
 });
 
 // собираем блок для фотки
@@ -80,11 +77,11 @@ const createphotoCard = () => {
   }
 
   return {
-    id: id,
-    url: getPhotoUrl(id),
-    description: getRandomArrayElement(photoDescriptions),
+    id,
+    url: `photos/${id}.jpg`,
+    description: getRandomArrayElement(PHOTO_DESCRIPTIONS),
     likes: getRandomInteger(15, 200),
-    comments: comments
+    comments
   };
 };
 
