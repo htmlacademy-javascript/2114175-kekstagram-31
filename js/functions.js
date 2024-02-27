@@ -1,11 +1,5 @@
 // Функция для проверки длины строки с максимально допустимой длиной
-const counterStringLength = (string, maxLength) => {
-  if (string.lenght <= maxLength) {
-    return true;
-  }
-
-  return false;
-};
+const counterStringLength = (string = '', maxLength = 1) => (string.lenght <= maxLength);
 
 // Функция для проверки, является ли строка палиндромом
 const palindromeCheck = (string) => {
