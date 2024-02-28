@@ -1,3 +1,3 @@
-import {createPhotoCard} from './photo-card.js';
+import {photoCardList} from './photo-card.js';
 
-createPhotoCard();
+photoCardList(); // чтоб не ругался линтер

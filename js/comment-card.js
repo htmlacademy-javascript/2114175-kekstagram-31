@@ -1,7 +1,7 @@
 import {getRandomArrayElement, getRandomInteger, createIdGeneration} from './util.js';
 // данные для карточки коммента
 // id комментария
-const getCommentId = () => createIdGeneration();
+const getCommentId = createIdGeneration();
 
 // текст для коммента
 const USER_MESSAGES = [

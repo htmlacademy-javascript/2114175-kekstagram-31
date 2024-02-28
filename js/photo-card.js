@@ -3,7 +3,7 @@ import {createUserComment} from './comment-card.js';
 
 // данные для блока фотографии
 // id фотографии
-const getPhotoId = () => createIdGeneration();
+const getPhotoId = createIdGeneration();
 
 // description фотки
 const PHOTO_DESCRIPTIONS = [
@@ -30,4 +30,6 @@ const createPhotoCard = () => {
   };
 };
 
-export {createPhotoCard};
+const photoCardList = () => Array.from({length: 25}, createPhotoCard);
+
+export {photoCardList};
