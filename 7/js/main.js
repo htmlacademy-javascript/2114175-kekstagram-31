@@ -1,1 +1,1 @@
-import {container} from './template-picture.js';
+import './template-picture.js';
