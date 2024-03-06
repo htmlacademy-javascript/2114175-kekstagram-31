@@ -1,3 +1,1 @@
-import {photoCardList} from './photo-card.js';
-
-photoCardList(); // чтоб не ругался линтер
+import {container} from './template-picture.js';
