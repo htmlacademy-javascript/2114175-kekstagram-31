@@ -30,6 +30,6 @@ const createPhotoCard = () => {
   };
 };
 
-const photoCardList = (count) => Array.from({length: count}, createPhotoCard);
+const createPhotoCardList = (count) => Array.from({length: count}, createPhotoCard);
 
-export {photoCardList};
+export {createPhotoCardList};
