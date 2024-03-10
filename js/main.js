@@ -1,1 +1,1 @@
-import './template-picture.js';
+import './modal-big-picture.js';

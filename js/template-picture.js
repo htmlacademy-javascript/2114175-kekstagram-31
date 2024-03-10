@@ -23,5 +23,3 @@ photoMock.forEach((photo) => {
 });
 
 container.append(listPicturesFragments);
-
-export {container};
