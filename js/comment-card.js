@@ -25,10 +25,12 @@ const USER_NAMES = [
 
 // собираем карточку комментария
 const createUserComment = () => ({
-  id: getCommentId(),
-  avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
-  message: getRandomArrayElement(USER_MESSAGES),
-  name: getRandomArrayElement(USER_NAMES)
+  return: {
+    id: getCommentId(),
+    avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
+    message: getRandomArrayElement(USER_MESSAGES),
+    name: getRandomArrayElement(USER_NAMES)
+  }
 });
 
 export {createUserComment};

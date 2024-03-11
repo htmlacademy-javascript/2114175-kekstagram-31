@@ -16,8 +16,12 @@ const createIdGeneration = () => {
   return () => lastId++;
 };
 
+// функция закрывающая страницу с эскейп
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
 export {
   createIdGeneration,
   getRandomArrayElement,
-  getRandomInteger
+  getRandomInteger,
+  isEscapeKey
 };
