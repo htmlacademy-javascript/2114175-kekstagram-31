@@ -1,5 +1,5 @@
 import { renderComments } from './comments.js';
-import {isEscapeKey} from './util.js';
+import { isEscapeKey } from './util.js';
 
 const body = document.body;
 // модальное окно выводящее большую картинку
@@ -18,8 +18,8 @@ const onDocumentKeydown = (evt) => {
     closeUserModal();
   }
 };
-
-const toggleClasses = (willBeOpened = true) => { //
+// создаем функцию которая меняет классы
+const toggleClasses = (willBeOpened = true) => {
   pictureModal.classList.toggle('hidden', !willBeOpened); // удаляем хидден чтоб открылась модалка
   body.classList.toggle('modal-open', willBeOpened); // боди не скроль
 };
@@ -33,18 +33,18 @@ const renderPhoto = (photo) => {
 
 // функция для открытия окна
 export function openUserModal(picture) {
-  toggleClasses(true);
-  renderPhoto(picture);
-  renderComments(picture.comments);
+  toggleClasses(true); // меняем классы
+  renderPhoto(picture); // создаем фото
+  renderComments(picture.comments); // создаем комменты
   document.addEventListener('keydown', onDocumentKeydown); // закрываем эскейпом
 }
 
 // функция закрытия модального окна
 function closeUserModal() {
-  document.removeEventListener('keydown', onDocumentKeydown);
-  toggleClasses(false);
+  document.removeEventListener('keydown', onDocumentKeydown); //закрытие через ескейп
+  toggleClasses(false); // меняем классы
 }
 
-// вызов функция закрытия модалки
+// вызов функции закрытия модалки
 const handleCloseButtonClick = closeUserModal;
 closeButton.addEventListener('click', handleCloseButtonClick);
