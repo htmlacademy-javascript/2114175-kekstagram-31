@@ -34,8 +34,8 @@ const renderPhoto = (photo) => {
 // функция для открытия окна
 export function openUserModal(picture) {
   toggleClasses(true); // меняем классы
-  renderPhoto(picture); // создаем фото
-  renderComments(picture.comments); // создаем комменты
+  renderPhoto(picture); // рисуем фото
+  renderComments(picture.comments); // рисуем комменты
   document.addEventListener('keydown', onDocumentKeydown); // закрываем эскейпом
 }
 
