@@ -11,7 +11,7 @@ let currentComments = []; // создаем пустой массив комме
 //создаем один комментарий по шаблону
 const createComment = (comment) => {
   const item = tamplateComment.cloneNode(true); // копируем li со всем содержимым
-  const img = item.querySelector('.social__pickture');// привязываемся к фото шаблона
+  const img = item.querySelector('.social__picture');// привязываемся к фото шаблона
 
   img.src = comment.avatar; //переписываем аватар
   img.alt = comment.name; // переписываем описание
