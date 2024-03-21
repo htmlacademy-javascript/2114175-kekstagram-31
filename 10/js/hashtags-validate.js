@@ -33,7 +33,7 @@ const validateHashtags = (value) => {
   }
   // записываем входящее значение, которому убираем пробелы по бокам, приводим к маленьким буквам
   //и проверяем есть ли запрещенные символы
-  const tags = value.trim().toLocateLowerCase().split(/\s*(?=#)/);
+  const tags = value.trim().toLowerCase().split(/\s*(?=#)/);
   // если количество хэштегов больше 5
   if (tags.length > Hashtags.MAX_COUNT) {
     hashtagsError = Hashtags.MAX_COUNT_ERROR; // выводим ошибку и записываем в пустую строку выше
