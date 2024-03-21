@@ -22,13 +22,13 @@ const createComment = (comment) => {
 
 // создаем функция работы кнопки открывани комментов
 const handleLoaderButtonClick = () => {
-  const shownComments = listComments.childElementCount; //записываем количество комментариев из шаблона
+  const shownComments = listComments.childElementCount; //записываем количество комментариев уже отрисованных на странице
   let endOfSlice = shownComments + PACK_SIZE; // находим конечное число
-  //проверяем конечное число с количесивом переписанного массива
+  //проверяем превысит ли следующая пачка количество всех комментариев фотографии
   const isAllCommentsShown = endOfSlice >= currentComments.length; //и записываем
   endOfSlice = isAllCommentsShown ? currentComments.length : endOfSlice; // если больше или равно конечному числу
   // если тру то оставляем число из массива, если нет записываем конечное число
-  // далее возвращаем изначальное количество шаблона и конечное число
+  // далее вырезаем следующую группу комментариев
   const commentSlice = currentComments.slice(shownComments, endOfSlice);
   //создаем по шаблону кеммент и записываем в массив и записываем в список
   listComments.append(...commentSlice.map(createComment));

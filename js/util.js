@@ -19,9 +19,13 @@ const createIdGeneration = () => {
 // функция закрывающая страницу с эскейп
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
+// функция на уникальность элемента в массиве
+const isUniqueArray = (array) => new Set(array).size === array.length;
+
 export {
   createIdGeneration,
   getRandomArrayElement,
   getRandomInteger,
+  isUniqueArray,
   isEscapeKey
 };
