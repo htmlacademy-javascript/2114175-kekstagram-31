@@ -1,6 +1,8 @@
 import { isEscapeKey } from './util.js';
 import './modal-big-picture.js';
 import { resetValidation, validate } from './hashtags-validate.js';
+import { resetScale } from './scale-range.js';
+import { resetEffect } from './effects.js';
 
 const body = document.body;
 
@@ -37,6 +39,8 @@ form.addEventListener('reset', () => {
   classToggle(); // меняем классы
   document.addEventListener('keydown', onDocumentKeydown); // прописываем эскейп
   resetValidation(); // делаем сброс
+  resetScale(); // сбрасываем масштаб
+  resetEffect(); //сбрасываем эффекты
 });
 // ловим отправку формы
 form.addEventListener('submit', (evt) => {
