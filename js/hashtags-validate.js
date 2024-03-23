@@ -1,4 +1,5 @@
 import { isUniqueArray } from './util.js';
+import Pristine from 'pristinejs';
 
 const form = document.querySelector('.img-upload__form'); // сама форма
 // перечисление ошибок
@@ -78,7 +79,7 @@ pristine.addValidator( //
   `Максимальная длина комментария ${Description.MAX_LENGTH} символов` // и выводим ошибку
 );
 
-const validate = () => pristine.validate(); //
-const resetValidation = () => pristine.reset(); //
+const validate = () => pristine.validate();
+const resetValidation = () => pristine.reset();
 
 export {validate, resetValidation};
