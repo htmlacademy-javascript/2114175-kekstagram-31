@@ -1,5 +1,5 @@
 import { renderComments } from './comments.js';
-import { isEscapeKey } from './util.js';
+import { isEscapeKey } from '../utils/util.js';
 
 const body = document.body;
 // модальное окно выводящее большую картинку

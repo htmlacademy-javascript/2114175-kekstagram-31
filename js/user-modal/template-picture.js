@@ -1,5 +1,5 @@
 import { openUserModal } from './modal-big-picture';
-import { getPhotoById } from './photo-state';
+import { getPhotoById } from '../utils/photo-state';
 
 //шаблон
 const templateElement = document.querySelector('#picture').content.querySelector('.picture');

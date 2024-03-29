@@ -1,5 +1,5 @@
-import { isEscapeKey } from './util.js';
-import './modal-big-picture.js';
+import { isEscapeKey } from '../utils/util.js';
+import '../user-modal/modal-big-picture.js';
 import { resetValidation, validate } from './hashtags-validate.js';
 import { resetScale } from './scale-range.js';
 import { resetEffect } from './effects.js';
