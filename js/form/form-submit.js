@@ -1,5 +1,6 @@
 import { validate } from './hashtags-validate'; // пристин
 import { renderSuccess } from '../messages/template-success';
+import { renderSubmitErr } from '../messages/submit-err';
 
 const form = document.querySelector('.img-upload__form'); // сама форма
 const setUserFormSubmit = (onSuccess) => {
@@ -15,7 +16,11 @@ const setUserFormSubmit = (onSuccess) => {
         body: formData
       },
       ).then(onSuccess)
-        .then(renderSuccess);
+        .then(renderSuccess)
+        .catch((err) => {
+          console.log('не отправлено');
+          renderSubmitErr(err);
+        });
     }
   });
 };
