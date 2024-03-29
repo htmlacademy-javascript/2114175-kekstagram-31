@@ -1,6 +1,6 @@
 import { isEscapeKey } from '../utils/util.js';
 import '../user-modal/modal-big-picture.js';
-import { resetValidation, validate } from './hashtags-validate.js';
+import { resetValidation } from './hashtags-validate.js';
 import { resetScale } from './scale-range.js';
 import { resetEffect } from './effects.js';
 
@@ -10,7 +10,7 @@ const form = document.querySelector('.img-upload__form'); // сама форма
 const filename = form.filename; // инпут формы (красная)
 const editingModal = form.querySelector('.img-upload__overlay'); // форма с фильтрами
 
-const closeModal = () => form.reset(); // функция сброса
+export const closeModal = () => form.reset(); // функция сброса
 // функция для поиска наличия хэштэгов и description
 const isFocusText = () =>
   [form.hashtags, form.description] // среди них
@@ -41,11 +41,4 @@ form.addEventListener('reset', () => {
   resetValidation(); // делаем сброс
   resetScale(); // сбрасываем масштаб
   resetEffect(); //сбрасываем эффекты
-});
-// ловим отправку формы
-form.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  if (validate()) { // если валидно
-    closeModal(); // делаем сброс
-  }
 });
