@@ -8,7 +8,7 @@ const setUserFormSubmit = (onSuccess) => {
   form.addEventListener('submit', (evt) => {
     evt.preventDefault();
     if (validate()) { // если валидно
-      console.log('валидно');
+      // console.log('валидно');
       const formData = new FormData(evt.target);
 
       fetch('https://31.javascript.htmlacademy.pro/kekstagram',{
@@ -18,7 +18,7 @@ const setUserFormSubmit = (onSuccess) => {
       ).then(onSuccess)
         .then(renderSuccess)
         .catch((err) => {
-          console.log('не отправлено');
+          // console.log('не отправлено');
           renderSubmitErr(err);
         });
     }
