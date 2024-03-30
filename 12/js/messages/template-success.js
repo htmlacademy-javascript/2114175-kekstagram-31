@@ -8,22 +8,35 @@ export const renderSuccess = () => {
   const successInner = successMessage.querySelector('.success__inner');
   document.querySelector('body').append(successMessage);
 
-  button.addEventListener('click', (evt) => {
+  const onButtonClick = (evt) => {
     evt.preventDefault();
-    successMessage.remove();
-  });
+    removeSuccess();
+  };
 
-  window.addEventListener('keydown', (evt) => {
-    evt.preventDefault();
-    if (isEscapeKey(evt)) {
-      successMessage.remove();
-    }
-  });
-
-  window.addEventListener('click', (evt) => {
+  const onWindowClick = (evt) => {
     evt.preventDefault();
     if (! successInner.contains(evt.target)) {
-      successMessage.remove();
+      removeSuccess();
     }
-  });
+  };
+
+  const onWindowKeydawn = (evt) => {
+    if (isEscapeKey(evt)) {
+      evt.preventDefault();
+      removeSuccess();
+    }
+  };
+
+  button.addEventListener('click', onButtonClick);
+
+  window.addEventListener('keydown', onWindowKeydawn);
+
+  window.addEventListener('click', onWindowClick);
+
+  function removeSuccess() {
+    button.removeEventListener('click', onButtonClick);
+    window.removeEventListener('keydown', onWindowKeydawn);
+    window.removeEventListener('click', onWindowClick);
+    successMessage.remove();
+  }
 };

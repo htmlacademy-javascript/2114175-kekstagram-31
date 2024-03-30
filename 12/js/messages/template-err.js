@@ -4,6 +4,6 @@ export const renderError = () => {
   const errorMessage = templateError.cloneNode(true);
   document.querySelector('body').append(errorMessage);
   setTimeout(() => {
-    errorMessage.hidden = true;
+    errorMessage.remove();
   } , 5000);
 };
