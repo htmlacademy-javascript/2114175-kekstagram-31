@@ -11,6 +11,7 @@ const filename = form.filename; // инпут формы (красная)
 const editingModal = form.querySelector('.img-upload__overlay'); // форма с фильтрами
 
 export const closeModal = () => form.reset(); // функция сброса
+
 // функция для поиска наличия хэштэгов и description
 const isFocusText = () =>
   [form.hashtags, form.description] // среди них
@@ -18,7 +19,7 @@ const isFocusText = () =>
 
 // закрытие окна эскейпом
 const onDocumentKeydown = (evt) => {
-  if (isEscapeKey(evt) && !isFocusText) {
+  if (isEscapeKey(evt) && !isFocusText()) {
     evt.preventDefault();
     closeModal();
   }
@@ -32,12 +33,12 @@ const classToggle = () => {
 filename.addEventListener('change', (evt) => {
   evt.preventDefault();
   classToggle(); // меняем классы
-  document.addEventListener('keydown', onDocumentKeydown); // прописываем эскейп
+  document.addEventListener('keydown', onDocumentKeydown); // прописываем слушатель события клик эскейп
 });
 // ловим нажатие сброса
 form.addEventListener('reset', () => {
   classToggle(); // меняем классы
-  document.addEventListener('keydown', onDocumentKeydown); // прописываем эскейп
+  document.removeEventListener('keydown', onDocumentKeydown); // удаляем слушатель события клик эскейп
   resetValidation(); // делаем сброс
   resetScale(); // сбрасываем масштаб
   resetEffect(); //сбрасываем эффекты
