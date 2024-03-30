@@ -14,8 +14,8 @@ export const renderSubmitErr = () => {
   });
 
   const onKeyDown = (evt) => {
-    evt.preventDefault();
     if (isEscapeKey(evt)) {
+      evt.preventDefault();
       removeMessage();
     }
   };

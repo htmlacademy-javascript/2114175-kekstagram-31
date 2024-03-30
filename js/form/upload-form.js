@@ -3,14 +3,21 @@ import '../user-modal/modal-big-picture.js';
 import { resetValidation } from './hashtags-validate.js';
 import { resetScale } from './scale-range.js';
 import { resetEffect } from './effects.js';
+import { validate } from './hashtags-validate.js'; // пристин
+import { renderSuccess } from '../messages/template-success.js';
+import { renderSubmitErr } from '../messages/submit-err.js';
+import { uploadNewPhoto } from './api.js';
 
 const body = document.body;
 
 const form = document.querySelector('.img-upload__form'); // сама форма
 const filename = form.filename; // инпут формы (красная)
 const editingModal = form.querySelector('.img-upload__overlay'); // форма с фильтрами
+const submitButton = form.querySelector('.img-upload__submit'); // кнопка "Опубликовать"
 
 export const closeModal = () => form.reset(); // функция сброса
+
+const isErrorOpened = () => document.querySelector('.error') !== null; // проверяет открыта ли модалка с ошибкой
 
 // функция для поиска наличия хэштэгов и description
 const isFocusText = () =>
@@ -19,7 +26,7 @@ const isFocusText = () =>
 
 // закрытие окна эскейпом
 const onDocumentKeydown = (evt) => {
-  if (isEscapeKey(evt) && !isFocusText()) {
+  if (isEscapeKey(evt) && !isErrorOpened() && !isFocusText()) {
     evt.preventDefault();
     closeModal();
   }
@@ -42,4 +49,28 @@ form.addEventListener('reset', () => {
   resetValidation(); // делаем сброс
   resetScale(); // сбрасываем масштаб
   resetEffect(); //сбрасываем эффекты
+});
+
+const blockSubmitButton = () => {
+  submitButton.disabled = true;
+};
+
+const unblockSubmitButton = () => {
+  submitButton.disabled = false;
+};
+
+// ловим отправку формы
+form.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  if (validate()) { // если валидно
+    // console.log('валидно');
+    blockSubmitButton();
+    uploadNewPhoto(new FormData(form))
+      .then(() => {
+        renderSuccess();
+        closeModal();
+      })
+      .catch(renderSubmitErr)
+      .finally(unblockSubmitButton);
+  }
 });

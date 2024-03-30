@@ -1,21 +1,36 @@
-const ErrorText = {
-  GET_DATA: 'Не удалось загрузить данные. Попробуйте обновить страницу',
-  SEND_DATA: 'Не удалось отправить форму. Попробуйте ещё раз',
+const BASE_URL = 'https://31.javascript.htmlacademy.pro/kekstagram';
+
+const Route = {
+  GET_DATA: '/data',
+  SEND_DATA: '/'
 };
 
-export const getData = () => fetch('https://31.javascript.htmlacademy.pro/kekstagram/data')
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(ErrorText.GET_DATA);
-    }
-    return response.json();
+const Method = {
+  GET: 'GET',
+  POST: 'POST'
+};
+
+const load = ({ route, method = Method.GET, body = null, errorText }) =>
+  fetch(`${BASE_URL}${route}`, { method, body })
+    .then((response) => {
+      if(!response.ok) {
+        throw new Error(errorText);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
+
+const getPhotos = () =>
+  load({ route: Route.GET_DATA, errorText: 'Не удалось загрузить фотографии' });
+
+const uploadNewPhoto = (body) =>
+  load({
+    route: Route.SEND_DATA,
+    method: Method.POST,
+    body,
+    errorText: 'Не удалось отправить фотографии'
   });
 
-export const sendData = (body) => fetch('https://31.javascript.htmlacademy.pro/kekstagram',{
-  method: 'POST',
-  body
-}).then((response) => {
-  if (!response.ok) {
-    throw new Error(ErrorText.SEND_DATA);
-  }
-});
+export { getPhotos, uploadNewPhoto };
