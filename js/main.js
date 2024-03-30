@@ -3,9 +3,9 @@ import { renderThumbnails } from './user-modal/template-picture.js'; // функ
 import { renderError } from './messages/template-err.js'; // темплейт с ошибкой
 import { setUserFormSubmit } from './form/form-submit.js'; // логика работы сабмита
 import { closeModal } from './form/upload-form.js'; // логика закрытия формы
+import { getData } from './form/api.js';
 
-fetch('https://31.javascript.htmlacademy.pro/kekstagram/data')
-  .then((response) => response.json())
+getData()
   .then((data) => {
     savePhotos(data);// переписываем их в массив
     renderThumbnails(data); // и создаем массив для миниатюр на основе массива выше
