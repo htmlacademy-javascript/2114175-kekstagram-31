@@ -1,4 +1,4 @@
-import { isUniqueArray } from './util.js';
+import { isUniqueArray } from '../utils/util.js';
 import Pristine from 'pristinejs';
 
 const form = document.querySelector('.img-upload__form'); // сама форма
