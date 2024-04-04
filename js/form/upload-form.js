@@ -7,6 +7,7 @@ import { validate } from './hashtags-validate.js'; // пристин
 import { renderSuccess } from '../messages/template-success.js';
 import { renderSubmitErr } from '../messages/submit-err.js';
 import { uploadNewPhoto } from './api.js';
+import { parsePhoto } from './new-photo.js';
 
 const body = document.body;
 
@@ -39,8 +40,11 @@ const classToggle = () => {
 // ловим нажатие на инпут
 filename.addEventListener('change', (evt) => {
   evt.preventDefault();
-  classToggle(); // меняем классы
-  document.addEventListener('keydown', onDocumentKeydown); // прописываем слушатель события клик эскейп
+  const isValid = parsePhoto(filename.files[0]);
+  if (isValid) {
+    classToggle(); // меняем классы
+    document.addEventListener('keydown', onDocumentKeydown); // прописываем слушатель события клик эскейп
+  }
 });
 // ловим нажатие сброса
 form.addEventListener('reset', () => {
