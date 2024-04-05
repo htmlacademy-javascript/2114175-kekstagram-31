@@ -9,7 +9,6 @@ getPhotos()
   .then((photos) => {
     savePhotos(photos);// переписываем их в массив
     renderThumbnails(photos); // и создаем массив для миниатюр на основе массива выше
-    renderThumbnails(photos); // и создаем массив для миниатюр на основе массива выше
     handleSelectFilters(photos);
   })
   .catch(renderError);

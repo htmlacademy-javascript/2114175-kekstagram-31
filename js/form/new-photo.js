@@ -1,14 +1,17 @@
 const FILE_TYPES = ['.jpg', '.jpeg', '.png'];
 
 const photoPreview = document.querySelector('.img-upload__preview img');
-const photoPreviewEffects = document.querySelector('.effects__preview');
+const photoPreviewEffects = document.querySelectorAll('.effects__preview');
 
 const updatePhoto = (file) => {
   const url = URL.createObjectURL(file);
   const filtersBackground = `url(${url})`;
   photoPreview.src = url;
   photoPreviewEffects.forEach(
-    (it) => (it.style.backgraundImage = filtersBackground));
+    (photoPreviewEffect) => {
+      photoPreviewEffect.style.backgroundImage = filtersBackground;
+    }
+  );
 };
 
 const validateExt = (fileName) => {
