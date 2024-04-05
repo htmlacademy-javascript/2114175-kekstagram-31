@@ -1,4 +1,5 @@
 import { getSortRandome } from '../utils/util.js';
+// логика работы сортировки
 
 const Filters = {
   DEFAULT_FILTER: 'filter-default',
