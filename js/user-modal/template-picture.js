@@ -5,6 +5,7 @@ import { getPhotoById } from '../utils/photo-state';
 const templateElement = document.querySelector('#picture').content.querySelector('.picture');
 // контайнер куда будем загружать фотки
 const container = document.querySelector('.pictures');
+
 // создаем функцию где заполняем данными фото
 const createThumbnail = (photo) => {
   const thumbnail = templateElement.cloneNode(true);
@@ -40,4 +41,10 @@ container.addEventListener('click', (evt) => { // если в контенерн
   openUserModal(photo); // и открой модалку с фото вписанным id
 });
 
-export {renderThumbnails};
+const clearThubnails = () => {
+  container.querySelectorAll('.picture').forEach((item) => {
+    item.remove();
+  });
+};
+
+export {renderThumbnails, clearThubnails};

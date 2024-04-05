@@ -3,10 +3,12 @@ import { renderThumbnails } from './user-modal/template-picture.js'; // функ
 import { renderError } from './messages/template-err.js'; // темплейт с ошибкой
 import { getPhotos } from './form/api.js';
 import './form/upload-form.js';
+import { handleSelectFilters } from './form/effects-rank.js';
 
 getPhotos()
-  .then((photo) => {
-    savePhotos(photo);// переписываем их в массив
-    renderThumbnails(photo); // и создаем массив для миниатюр на основе массива выше
+  .then((photos) => {
+    savePhotos(photos);// переписываем их в массив
+    renderThumbnails(photos); // и создаем массив для миниатюр на основе массива выше
+    handleSelectFilters(photos);
   })
   .catch(renderError);
