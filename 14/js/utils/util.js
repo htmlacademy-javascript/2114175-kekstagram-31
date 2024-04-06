@@ -16,7 +16,7 @@ const createIdGeneration = () => {
   return () => lastId++;
 };
 
-const getSortRandome = () => getRandomInteger(-1, 1);
+const getSortRandom = () => getRandomInteger(-1, 1);
 
 // функция закрывающая страницу с эскейп
 const isEscapeKey = (evt) => evt.key === 'Escape';
@@ -68,7 +68,7 @@ export {
   getRandomArrayElement,
   getRandomInteger,
   isUniqueArray,
-  getSortRandome,
+  getSortRandom,
   isEscapeKey,
   debounce,
   throttle

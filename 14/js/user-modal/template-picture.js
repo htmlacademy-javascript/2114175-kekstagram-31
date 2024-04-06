@@ -41,10 +41,10 @@ container.addEventListener('click', (evt) => { // если в контенерн
   openUserModal(photo); // и открой модалку с фото вписанным id
 });
 
-const clearThubnails = () => {
+const clearThumbnails = () => {
   container.querySelectorAll('.picture').forEach((item) => {
     item.remove();
   });
 };
 
-export {renderThumbnails, clearThubnails};
+export {renderThumbnails, clearThumbnails};
