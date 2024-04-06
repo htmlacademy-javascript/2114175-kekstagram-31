@@ -8,7 +8,7 @@ import { handleSelectFilters } from './form/effects-rank.js';
 getPhotos()
   .then((photos) => {
     savePhotos(photos);// переписываем их в массив
-    renderThumbnails(photos); // и создаем массив для миниатюр на основе массива выше
     handleSelectFilters(photos);
+    renderThumbnails(photos); // и создаем массив для миниатюр на основе массива выше
   })
   .catch(renderError);

@@ -1,4 +1,4 @@
-import { clearThubnails, renderThumbnails } from '../user-modal/template-picture.js';
+import { clearThumbnails, renderThumbnails } from '../user-modal/template-picture.js';
 import { debounce } from '../utils/util.js';
 import { idToFilter } from './filter-options.js';
 
@@ -14,7 +14,7 @@ const switchButtons = (newActive) => {
 };
 
 const sortPhotos = (filterId, photos) => {
-  clearThubnails();
+  clearThumbnails();
 
   let sortedPhotos = photos;
 

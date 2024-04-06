@@ -1,4 +1,5 @@
-import { getSortRandome } from '../utils/util.js';
+import { getSortRandom } from '../utils/util.js';
+// логика работы сортировки
 
 const Filters = {
   DEFAULT_FILTER: 'filter-default',
@@ -12,7 +13,7 @@ const RandomFilterParams = {
 };
 
 const filterRandom = (photos) =>
-  photos.toSorted(getSortRandome)
+  photos.toSorted(getSortRandom)
     .slice(RandomFilterParams.MIN, RandomFilterParams.MAX);
 
 const getCommentsAmount = (photo) => photo.comments.length;
