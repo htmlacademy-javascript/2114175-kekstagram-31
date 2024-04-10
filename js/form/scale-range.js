@@ -1,15 +1,17 @@
-const form = document.querySelector('.img-upload__form'); // сама форма
-const scale = document.querySelector('.img-upload__scale'); // сам филдсет
-const zoomMaxButton = scale.querySelector('.scale__control--smaller'); // кнопка уменьшения
-const zoomMinButton = scale.querySelector('.scale__control--bigger'); // кнопка увеличения
-const scaleValue = form.scale; // инпут в филдсете
-const previewImage = document.querySelector('.img-upload__preview img'); // превью картинка
 // создаем перечисление шага
 const Default = {
   MIN: 25, // минимальное значение
   MAX: 100, // максимальное
   STEP: 25 // значение шага
 };
+
+const form = document.querySelector('.img-upload__form'); // сама форма
+const scale = document.querySelector('.img-upload__scale'); // сам филдсет
+const zoomMaxButton = scale.querySelector('.scale__control--smaller'); // кнопка уменьшения
+const zoomMinButton = scale.querySelector('.scale__control--bigger'); // кнопка увеличения
+const scaleValue = form.scale; // инпут в филдсете
+const previewImage = document.querySelector('.img-upload__preview img'); // превью картинка
+
 // создаем из строки число
 let currentScale = parseInt(scaleValue.value, 10); //значение из инпута запиши в десятичное число
 // функция с переписыванием значений
