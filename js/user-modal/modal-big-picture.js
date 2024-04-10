@@ -46,5 +46,5 @@ function closeUserModal() {
 }
 
 // вызов функции закрытия модалки
-const handleCloseButtonClick = closeUserModal;
-closeButton.addEventListener('click', handleCloseButtonClick);
+const onCloseButtonClick = closeUserModal;
+closeButton.addEventListener('click', onCloseButtonClick);

@@ -13,13 +13,13 @@ export const renderSubmitErr = () => {
     removeMessage();
   });
 
-  const onKeyDown = (evt) => {
+  const onWindowKeyDown = (evt) => {
     if (isEscapeKey(evt)) {
       evt.preventDefault();
       removeMessage();
     }
   };
-  window.addEventListener('keydown', onKeyDown);
+  window.addEventListener('keydown', onWindowKeyDown);
 
   const onClick = (evt) => {
     evt.preventDefault();
@@ -30,7 +30,7 @@ export const renderSubmitErr = () => {
   window.addEventListener('click', onClick);
 
   function removeMessage() {
-    window.removeEventListener('keydown', onKeyDown);
+    window.removeEventListener('keydown', onWindowKeyDown);
     window.removeEventListener('click', onClick);
     successMessage.remove();
   }

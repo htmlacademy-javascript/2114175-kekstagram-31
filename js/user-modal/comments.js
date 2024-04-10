@@ -21,7 +21,7 @@ const createComment = (comment) => {
 };
 
 // создаем функция работы кнопки открывани комментов
-const handleLoaderButtonClick = () => {
+const onLoaderButtonClick = () => {
   const shownComments = listComments.childElementCount; //записываем количество комментариев уже отрисованных на странице
   let endOfSlice = shownComments + PACK_SIZE; // находим конечное число
   //проверяем превысит ли следующая пачка количество всех комментариев фотографии
@@ -38,7 +38,7 @@ const handleLoaderButtonClick = () => {
   loaderButton.classList.toggle('hidden', isAllCommentsShown);
 };
 //если нажать на кнопу он должен отработать функцию выше
-loaderButton.addEventListener('click', handleLoaderButtonClick);
+loaderButton.addEventListener('click', onLoaderButtonClick);
 
 // создаем комментарии
 export const renderComments = (comments) => { //принимаем все комменты

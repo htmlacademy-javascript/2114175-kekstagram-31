@@ -1,7 +1,7 @@
 // радомайзер
-const getRandomInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
+const getRandomInteger = (minNumbers, maxNumbers) => {
+  const lower = Math.ceil(Math.min(minNumbers, maxNumbers));
+  const upper = Math.floor(Math.max(minNumbers, maxNumbers));
   const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
 };
@@ -22,7 +22,7 @@ const getSortRandom = () => getRandomInteger(-1, 1);
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
 // функция на уникальность элемента в массиве
-const isUniqueArray = (array) => new Set(array).size === array.length;
+const isUniqueArray = (arrays) => new Set(arrays).size === arrays.length;
 
 function debounce (callback, timeoutDelay = 500) {
   // Используем замыкания, чтобы id таймаута у нас навсегда приклеился
